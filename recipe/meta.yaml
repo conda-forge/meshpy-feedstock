@@ -47,7 +47,7 @@ test:
   requires:
     - pytest
   commands:
-    - pytest test  # [build_platform != target_platform]
+    - pytest test  # [build_platform == target_platform]
   imports:
     - meshpy
 
