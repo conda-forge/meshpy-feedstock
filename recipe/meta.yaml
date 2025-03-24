@@ -16,6 +16,8 @@ build:
   number: 0
   script:
     - {{ PYTHON }} -m pip install . --no-deps -v
+    - $PYTHON -m build -w -n -x -Csetup-args=${MESON_ARGS// / -Csetup-args=}
+    - $PYTHON -m pip install dist/meshpy*.whl
     - echo src/cpp/tetgen-LICENSE >> doc/faq.rst
   skip: true  # [py<310]
 
