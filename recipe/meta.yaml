@@ -1,11 +1,11 @@
 {% set name = "meshpy" %}
 {% set uname = "MeshPy" %}
-{% set version = "2025.1.1" %}
-{% set sha256 = "70fc707fe9ccd9e907b95a9271804b4dd02e77d60644f64a0384cbf9e6d5b86b" %}
+{% set version = "2026.1" %}
+{% set sha256 = "dd444e37edf5f751299ad7af5fc89aba6aad2cb67b4c3413ee0a5003935732dd" %}
 
 package:
   name: {{ name|lower }}
-  version: {{ version }}
+  version: "{{ version }}"
 
 source:
   fn: {{ uname }}-{{ version }}.tar.gz
@@ -13,7 +13,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   script:
     # Need to parse MESON_ARGS to make sure meson finds the correct executables for cross-compilation.
     - $PYTHON -m build -w -n -x -Csetup-args=${MESON_ARGS// / -Csetup-args=}    # [unix]
